@@ -4,7 +4,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
-import org.jdesktop.beansbinding.BeanProperty;
 import org.jdesktop.beansbinding.Binding;
 import org.jdesktop.beansbinding.Bindings;
 import org.jdesktop.beansbinding.Property;
@@ -24,7 +23,7 @@ import com.toedter.calendar.JDateChooser;
  * @author Stephen Neal
  * @since 20/04/2011
  */
-class ToedterCalendarBinding {
+public class ToedterCalendarBinding {
 
     /**
      * Create a binding of the bean property to the {@link JCalendar} date selection. The date chooser is updated with
@@ -33,14 +32,13 @@ class ToedterCalendarBinding {
      * NB. creates the binding but does not actually bind so that invokers can customise the binding if required.
      * </p>
      * 
-     * @param bean bean
-     * @param propertyName name of the property on the bean
+     * @param bean bean to bind
+     * @param bP bean property to bind
      * @param component date chooser component
      * @return binding instance
      */
-    public static <B, V> Binding<B, Calendar, JCalendar, Calendar> calendar(B bean, String propertyName,
+    public static <B, V> Binding<B, Calendar, JCalendar, Calendar> calendar(B bean, Property<B, Calendar> bP,
                     JCalendar component) {
-        Property<B, Calendar> bP = BeanProperty.create(propertyName);
         Property<JCalendar, Calendar> cP = SwingProperty.create("calendar");
         return Bindings.createAutoBinding(UpdateStrategy.READ_WRITE, bean, bP, component, cP);
     }
@@ -57,8 +55,8 @@ class ToedterCalendarBinding {
      * @param component date chooser component
      * @return binding instance
      */
-    public static <B, V> Binding<B, Date, JDateChooser, Date> date(B bean, String propertyName, JDateChooser component) {
-        Property<B, Date> bP = BeanProperty.create(propertyName);
+    public static <B, V> Binding<B, Date, JDateChooser, Date>
+                    date(B bean, Property<B, Date> bP, JDateChooser component) {
         Property<JDateChooser, Date> cP = SwingProperty.create("date");
         return Bindings.createAutoBinding(UpdateStrategy.READ_WRITE, bean, bP, component, cP);
     }

@@ -8,8 +8,9 @@ import java.util.Date;
 import org.jdesktop.beansbinding.Binding;
 import org.junit.Test;
 
-import com.swing.test.TestUtils;
 import com.swing.binding.TestBean;
+import com.swing.binding.TestBean.Properties;
+import com.swing.test.TestUtils;
 import com.toedter.calendar.JDateChooser;
 
 /**
@@ -34,7 +35,8 @@ public class ToedterCalendarBindingFunctionalTest {
         final JDateChooser dateField = new JDateChooser();
 
         // Bind
-        Binding<TestBean, Date, JDateChooser, Date> binding = ToedterCalendarBinding.date(bean, "date", dateField);
+        Binding<TestBean, Date, JDateChooser, Date> binding = ToedterCalendarBinding.date(bean, Properties.DATE,
+                        dateField);
         binding.bind();
 
         // Test
