@@ -13,9 +13,9 @@ import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
 
 /**
- * Wraps BetterBeansBinding to provide operations that bind the value of date related Swing components to a date
- * property on a bean. This does not include binding a date to a text component, those can be found in
- * {@link TextBinding}.
+ * Provide binding operations for date components found in {@code com.toedter.calendar} that bind the value of date
+ * related Swing components to a date property on a bean. This does not include binding a date to a text component,
+ * those can be found in {@link TextBinding}.
  * <p>
  * NB. the operations are currently commented out because they are for third party Swing components JCalendar and
  * JDateChooser.
@@ -24,14 +24,13 @@ import com.toedter.calendar.JDateChooser;
  * @author Stephen Neal
  * @since 20/04/2011
  */
-class ToedterDateBinding {
+class ToedterCalendarBinding {
 
     /**
      * Create a binding of the bean property to the {@link JCalendar} date selection. The date chooser is updated with
      * the value from the property.
      * <p>
-     * NB. creates the binding but does not actually bind. It is a helper method intended for use in the {@code Binder}
-     * which ensures bindings are properly managed.
+     * NB. creates the binding but does not actually bind so that invokers can customise the binding if required.
      * </p>
      * 
      * @param bean bean
@@ -50,8 +49,7 @@ class ToedterDateBinding {
      * Create a binding of the bean property to the {@link JDateChooser} "date" property. The date chooser is updated
      * with the value from the property.
      * <p>
-     * NB. creates the binding but does not actually bind. It is a helper method intended for use in the {@code Binder}
-     * which ensures bindings are properly managed.
+     * NB. creates the binding but does not actually bind so that invokers can customise the binding if required.
      * </p>
      * 
      * @param bean bean

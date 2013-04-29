@@ -13,7 +13,7 @@ import com.swing.binding.TestBean;
 import com.toedter.calendar.JDateChooser;
 
 /**
- * Tests the functionality of {@link ToedterDateBinding}.
+ * Tests the functionality of {@link ToedterCalendarBinding}.
  * <p>
  * This does not test the class in isolation (as per a unit test), it tests with real bindings (BetterBeansBinding).
  * </p>
@@ -21,10 +21,10 @@ import com.toedter.calendar.JDateChooser;
  * @author Stephen Neal
  * @since 18/07/2011
  */
-public class ToedterDateBindingFunctionalTest {
+public class ToedterCalendarBindingFunctionalTest {
 
     /**
-     * Test for {@link ToedterDateBinding#date(Object, String, JDateChooser)}. Verifies binding updates correctly in
+     * Test for {@link ToedterCalendarBinding#date(Object, String, JDateChooser)}. Verifies binding updates correctly in
      * both directions.
      */
     @Test
@@ -34,7 +34,7 @@ public class ToedterDateBindingFunctionalTest {
         final JDateChooser dateField = new JDateChooser();
 
         // Bind
-        Binding<TestBean, Date, JDateChooser, Date> binding = ToedterDateBinding.date(bean, "date", dateField);
+        Binding<TestBean, Date, JDateChooser, Date> binding = ToedterCalendarBinding.date(bean, "date", dateField);
         binding.bind();
 
         // Test
